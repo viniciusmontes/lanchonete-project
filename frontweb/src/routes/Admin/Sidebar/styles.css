@@ -1,0 +1,9 @@
+.sidebar-container {
+    width: 320px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 0 10px 10px 0;
+
+}
+.sidebar-title {
+    padding-left: 20px;
+}

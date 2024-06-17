@@ -1,0 +1,29 @@
+.list-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.list-container-button {
+  display: flex;
+  justify-content: flex-end;
+}
+.table {
+  width: 100%;
+}
+.table td {
+  font-family: sans-serif;
+}
+
+.table img {
+  width: 40px;
+  height: 40px;
+}
+.table button {
+  border: none;
+  background-color: #fff;
+  
+}
+.table-btn-danger {
+  color: red;
+}

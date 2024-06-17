@@ -1,0 +1,9 @@
+/* .carrousel-container {
+    background-color: rgba(0, 0, 0, 0.327);
+} */
+
+.carrousel-container img {
+    width: 100%;
+    height: 380px;
+}
+

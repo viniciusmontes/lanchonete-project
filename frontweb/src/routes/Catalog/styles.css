@@ -1,0 +1,26 @@
+.test-container {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+.test-banner-container {
+  width: 100%;
+  height: 380px;
+  margin-bottom: 10px;
+}
+.test-banner-container img {
+  width: 100%;
+  height: 100%;
+}
+.test-container-title {
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
+  color: red;
+}
+
+.test-container-catalog {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
