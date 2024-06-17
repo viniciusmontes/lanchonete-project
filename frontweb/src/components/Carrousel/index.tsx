@@ -4,7 +4,7 @@ import "./styles.css";
 export default function Carrousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    "https://gifs.eco.br/wp-content/uploads/2023/06/imagens-de-lanche-png-0.png", // Substitua "img1.jpg" com o caminho real da sua imagem
+    "https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kzXCTbnv/200/200/original?country=br", // Substitua "img1.jpg" com o caminho real da sua imagem
     "https://static.wixstatic.com/media/04b233_8cc42a30f29a41eb9bd8213d8b7b8cee~mv2.png/v1/fill/w_648,h_432,al_c,q_85,usm_0.33_1.00_0.00,enc_auto/PRODUTOS%20D'LANCHE.png",
     "https://gifs.eco.br/wp-content/uploads/2023/06/imagens-de-lanche-png-13.png",
   ];

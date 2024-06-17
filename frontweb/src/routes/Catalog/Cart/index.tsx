@@ -1,14 +1,14 @@
-import "./styles.css";
+import './styles.css';
 
-import { useContext, useState } from "react";
-import { IoAdd, IoRemove, IoTrash } from "react-icons/io5";
-import { useNavigate } from "react-router";
+import { useContext, useState } from 'react';
+import { IoAddCircle, IoRemove, IoTrash } from 'react-icons/io5';
+import { useNavigate } from 'react-router';
 
-import ButtonIcon from "../../../components/ButtonIcon";
-import { OrderDTO } from "../../../models/order";
-import * as cartService from "../../../services/cart-service";
-import * as orderService from "../../../services/order-service";
-import { ContextCartCount } from "../../../utils/context-card";
+import ButtonIcon from '../../../components/ButtonIcon';
+import { OrderDTO } from '../../../models/order';
+import * as cartService from '../../../services/cart-service';
+import * as orderService from '../../../services/order-service';
+import { ContextCartCount } from '../../../utils/context-card';
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -76,7 +76,7 @@ export default function Cart() {
                         onClick={() => handleIncreaseItem(item.productId)}
                         className="dsc-cart-item-quantity-btn"
                       >
-                        <IoAdd />
+                        <IoAddCircle />
                       </div>
                     </div>
                   </div>
