@@ -24,3 +24,17 @@ export class OrderItemDTO {
     return this.price * this.quantity;
   }
 }
+
+export type OrderStatus = 'WAITING_PAYMENT' | 'PAID' | 'SHIPPED' | 'DELIVERED' | 'CANCELED';
+
+export function formatStatus(status: OrderStatus): string {
+  const textByStatus: Record<OrderStatus, string> = {
+    WAITING_PAYMENT: "Aguardando pagamento",
+    PAID: "Pago",
+    SHIPPED: "Enviado",
+    DELIVERED: "Entregue",
+    CANCELED: "Cancelado",
+  };
+
+  return textByStatus[status];
+}

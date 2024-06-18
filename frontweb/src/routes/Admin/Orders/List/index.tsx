@@ -6,12 +6,14 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import './styles.css';
+import "./styles.css";
 
 import ButtonIcon from "../../../../components/ButtonIcon";
 import { requestBackend } from "../../../../utils/requests";
 import { SpringPage } from "../../../../utils/vendor/spring";
 import Pagination from "../../../../components/Pagination";
+import { convertToBrazilianDateFormat } from "../../../../utils/formatters";
+import { OrderStatus, formatStatus } from "../../../../models/order";
 
 type OrderList = {
   id: number;
@@ -86,8 +88,8 @@ export default function List() {
             <tbody>
               <tr>
                 <td>{orders.id}</td>
-                <td>{orders.moment}</td>
-                <td>{orders.status}</td>
+                <td>{convertToBrazilianDateFormat(Number(orders.moment))}</td>
+                <td>{formatStatus(orders.status as OrderStatus)}</td>
 
                 <td>
                   <button
