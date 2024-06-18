@@ -1,10 +1,12 @@
-
-import './styles.css'
-
-
+import List from "./List";
+import "./styles.css";
 
 export default function Order() {
-    return (
-        <h1>Página de pedidos</h1>
-    )
+  return (
+    <>
+      <div className="orders-list-container">
+        <List />
+      </div>
+    </>
+  );
 }
