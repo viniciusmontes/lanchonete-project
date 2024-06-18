@@ -3,3 +3,7 @@
     flex: 1;
     flex-direction: column;
 }
+
+.orders-list-title {
+    margin-bottom: 20px;
+}

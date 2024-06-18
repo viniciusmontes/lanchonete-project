@@ -1,19 +1,17 @@
+import "./styles.css";
+
 import { AxiosRequestConfig } from "axios";
 import { useCallback, useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { IoTrashBin } from "react-icons/io5";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import "./styles.css";
-
-import ButtonIcon from "../../../../components/ButtonIcon";
+import Pagination from "../../../../components/Pagination";
+import { formatStatus, OrderStatus } from "../../../../models/order";
+import { convertToBrazilianDateFormat } from "../../../../utils/formatters";
 import { requestBackend } from "../../../../utils/requests";
 import { SpringPage } from "../../../../utils/vendor/spring";
-import Pagination from "../../../../components/Pagination";
-import { convertToBrazilianDateFormat } from "../../../../utils/formatters";
-import { OrderStatus, formatStatus } from "../../../../models/order";
 
 type OrderList = {
   id: number;
@@ -65,12 +63,8 @@ export default function List() {
 
   return (
     <div className="orders-list-container form-control">
-      <h1>Pedidos</h1>
-
-      <div className="list-container-button">
-        <Link to="/admin/products/create">
-          <ButtonIcon text="CRIAR NOVO" nameClass="btn-success" />
-        </Link>
+      <div className="orders-list-title">
+        <h1>Pedidos</h1>
       </div>
 
       {page?.content.map((orders) => (
