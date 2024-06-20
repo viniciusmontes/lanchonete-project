@@ -1,28 +1,31 @@
-import "./styles.css";
+import './styles.css';
 
-import { AxiosRequestConfig } from "axios";
-import { useCallback, useEffect, useState } from "react";
-import { FaEdit } from "react-icons/fa";
-import { IoTrashBin } from "react-icons/io5";
-import { useNavigate } from "react-router";
-import { toast } from "react-toastify";
+import { AxiosRequestConfig } from 'axios';
+import { useCallback, useEffect, useState } from 'react';
+import { FaEye } from 'react-icons/fa';
+import { IoTrashBin } from 'react-icons/io5';
+import { toast } from 'react-toastify';
 
-import Pagination from "../../../../components/Pagination";
-import { formatStatus, OrderStatus } from "../../../../models/order";
-import { convertToBrazilianDateFormat } from "../../../../utils/formatters";
-import { requestBackend } from "../../../../utils/requests";
-import { SpringPage } from "../../../../utils/vendor/spring";
+import Pagination from '../../../../components/Pagination';
+import { formatStatus, OrderItemDTO, OrderStatus } from '../../../../models/order';
+import { convertToBrazilianDateFormat } from '../../../../utils/formatters';
+import { requestBackend } from '../../../../utils/requests';
+import { SpringPage } from '../../../../utils/vendor/spring';
+import ModalOrder from '../ModalOrder';
 
-type OrderList = {
+export type OrderList = {
   id: number;
   moment: string;
   status: string;
+  items: OrderItemDTO[];
+  total : number;
 };
 
 export default function List() {
+  
   const [page, setPage] = useState<SpringPage<OrderList>>();
 
-  const navigate = useNavigate();
+  const [selectedOrder, setSelectedOrder] = useState<OrderList | null>(null);
 
   const getProducts = useCallback((pageNumber: number) => {
     requestBackend({
@@ -57,8 +60,11 @@ export default function List() {
     });
   }
 
-  function handleUpdateClick(productId: number) {
-    navigate(`/admin/products/${productId}`);
+  function handleDialogAnswer(answer: boolean) {
+    if (answer) {
+      // Execute some action if needed
+    }
+    setSelectedOrder(null); // Close the modal
   }
 
   return (
@@ -87,10 +93,10 @@ export default function List() {
 
                 <td>
                   <button
-                    className="btn-primary"
-                    onClick={() => handleUpdateClick(Number(orders.id))}
+                    className="btn-secondary"
+                    onClick={() => setSelectedOrder(orders)}
                   >
-                    <FaEdit />
+                    <FaEye />
                   </button>
                 </td>
                 <td>
@@ -111,6 +117,9 @@ export default function List() {
         range={3}
         onChange={getProducts}
       />
+      {selectedOrder && (
+        <ModalOrder order={selectedOrder} onDialogAnswer={handleDialogAnswer} />
+      )}
     </div>
   );
 }

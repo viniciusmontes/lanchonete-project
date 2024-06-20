@@ -3,9 +3,9 @@ import "./styles.css";
 import { useEffect, useState } from "react";
 
 import Card from "../../components/Card";
+import Carrousel from "../../components/Carrousel";
 import { ProductDTO } from "../../models/product";
 import * as productService from "../../services/product-service";
-import Carrousel from "../../components/Carrousel";
 
 export default function Catalog() {
   const [products, setProducts] = useState<ProductDTO[]>([]);

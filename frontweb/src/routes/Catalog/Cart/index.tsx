@@ -9,6 +9,7 @@ import { OrderDTO } from "../../../models/order";
 import * as cartService from "../../../services/cart-service";
 import * as orderService from "../../../services/order-service";
 import { ContextCartCount } from "../../../utils/context-card";
+import { toast } from "react-toastify";
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -35,9 +36,11 @@ export default function Cart() {
 
   function handlePlaceOrderClick() {
     orderService.placeOrderRequest(cart).then(() => {
+      toast.success("Pedido realizado com sucesso!")
       cartService.clearCart();
       setContextCartCount(0);
       updateCart();
+      navigate('/');
     });
   }
 
