@@ -19,16 +19,27 @@ export default function ModalOrder({ order, onDialogAnswer }: Props) {
       >
         <div className="modal-order-details">
           {order.items.map((x) => (
-            <div key={x.productId} className="modal-order-items-container">
-              <p>{x.quantity}x</p>
-              <p>{x.name}</p>
-              <p>R$ {formatPrice(x.price)}</p>
-
-              <p>R$ {formatPrice(x.subTotal)}</p>
+            <div key={x.productId} className="modal-order-item">
+              <div className="form-group">
+                <label>Quantidade:</label>
+                <p>{x.quantity}x</p>
+              </div>
+              <div className="form-group">
+                <label>Produto:</label>
+                <p>{x.name}</p>
+              </div>
+              <div className="form-group">
+                <label>Preço unitário:</label>
+                <p>R$ {formatPrice(x.price)}</p>
+              </div>
+              <div className="form-group">
+                <label>Subtotal:</label>
+                <p>R$ {formatPrice(x.subTotal)}</p>
+              </div>
             </div>
           ))}
         </div>
-        <h1>R$ {formatPrice(order.total)}</h1>
+        <h1>Total: R$ {formatPrice(order.total)}</h1>
       </div>
     </div>
   );
