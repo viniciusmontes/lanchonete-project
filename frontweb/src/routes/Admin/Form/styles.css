@@ -2,3 +2,19 @@
     display: flex;
     flex: 1;
 }
+
+.product-form-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    height: 250px;
+    width: 250px;
+    margin-top: 20px;
+  }
+  
+  .product-form-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }

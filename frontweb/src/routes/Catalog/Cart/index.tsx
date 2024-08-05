@@ -10,6 +10,7 @@ import * as cartService from "../../../services/cart-service";
 import * as orderService from "../../../services/order-service";
 import { ContextCartCount } from "../../../utils/context-card";
 import { toast } from "react-toastify";
+import { formatPrice } from "../../../utils/formatters";
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -36,11 +37,11 @@ export default function Cart() {
 
   function handlePlaceOrderClick() {
     orderService.placeOrderRequest(cart).then(() => {
-      toast.success("Pedido realizado com sucesso!")
+      toast.success("Pedido realizado com sucesso!");
       cartService.clearCart();
       setContextCartCount(0);
       updateCart();
-      navigate('/');
+      navigate("/");
     });
   }
 
@@ -87,13 +88,13 @@ export default function Cart() {
                   </div>
                 </div>
                 <div className="dsc-cart-item-right">
-                  R$ {item.subTotal.toFixed(2)}
+                  R$ {formatPrice(item.subTotal)}
                 </div>
               </div>
             ))}
 
             <div className="dsc-cart-total-container">
-              <h3>R$ {cart.total.toFixed(2)}</h3>
+              <h3>R$ {formatPrice(cart.total)}</h3>
             </div>
             <div className="dsc-cart-button-container">
               <ButtonIcon

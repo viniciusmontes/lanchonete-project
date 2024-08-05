@@ -1,10 +1,7 @@
 import './styles.css';
 
-import { AxiosRequestConfig } from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
-import { IoTrashBin } from 'react-icons/io5';
-import { toast } from 'react-toastify';
 
 import Pagination from '../../../../components/Pagination';
 import { formatStatus, OrderItemDTO, OrderStatus } from '../../../../models/order';
@@ -18,13 +15,11 @@ export type OrderList = {
   moment: string;
   status: string;
   items: OrderItemDTO[];
-  total : number;
+  total: number;
 };
 
 export default function List() {
-  
   const [page, setPage] = useState<SpringPage<OrderList>>();
-
   const [selectedOrder, setSelectedOrder] = useState<OrderList | null>(null);
 
   const getProducts = useCallback((pageNumber: number) => {
@@ -43,23 +38,6 @@ export default function List() {
     getProducts(0);
   }, [getProducts]);
 
-  function handleDelete(productId: number) {
-    if (!window.confirm("Tem certeza que deseja deletar ?")) {
-      return;
-    }
-
-    const config: AxiosRequestConfig = {
-      method: "DELETE",
-      url: `/orders/${productId}`,
-      withCredentials: true,
-    };
-
-    requestBackend(config).then(() => {
-      toast.info("Pedido excluido com sucesso!");
-      getProducts(0); // Refresh the product list after deletion
-    });
-  }
-
   function handleDialogAnswer(answer: boolean) {
     if (answer) {
       // Execute some action if needed
@@ -73,53 +51,54 @@ export default function List() {
         <h1>Pedidos</h1>
       </div>
 
-      {page?.content.map((orders) => (
-        <div className="list-container-table" key={orders?.id}>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Momento</th>
-                <th>Status</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{orders.id}</td>
-                <td>{convertToBrazilianDateFormat(Number(orders.moment))}</td>
-                <td>{formatStatus(orders.status as OrderStatus)}</td>
-
-                <td>
-                  <button
-                    className="btn-secondary"
-                    onClick={() => setSelectedOrder(orders)}
-                  >
-                    <FaEye />
-                  </button>
-                </td>
-                <td>
-                  <button
-                    className="table-btn-danger"
-                    onClick={() => handleDelete(Number(orders.id))}
-                  >
-                    <IoTrashBin />
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      ))}
-      <Pagination
-        pageCount={page ? page.totalPages : 0}
-        range={3}
-        onChange={getProducts}
-      />
-      {selectedOrder && (
-        <ModalOrder order={selectedOrder} onDialogAnswer={handleDialogAnswer} />
-      )}
+      <div className="list-container-table">
+        {page?.content.length ? (
+          <>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Momento</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {page.content.map((orders) => (
+                  <tr key={orders.id}>
+                    <td>{orders.id}</td>
+                    <td>
+                      {convertToBrazilianDateFormat(Number(orders.moment))}
+                    </td>
+                    <td>{formatStatus(orders.status as OrderStatus)}</td>
+                    <td>
+                      <button
+                        className="btn-secondary"
+                        onClick={() => setSelectedOrder(orders)}
+                      >
+                        <FaEye />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <Pagination
+              pageCount={page ? page.totalPages : 0}
+              range={3}
+              onChange={getProducts}
+            />
+            {selectedOrder && (
+              <ModalOrder
+                order={selectedOrder}
+                onDialogAnswer={handleDialogAnswer}
+              />
+            )}
+          </>
+        ) : (
+          <h1>Nenhum pedido encontrado</h1>
+        )}
+      </div>
     </div>
   );
 }

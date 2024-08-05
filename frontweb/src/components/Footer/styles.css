@@ -1,16 +1,16 @@
 .footer-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: red;
-    height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  height: 60px;
 }
 
 .footer-content-container {
-    text-align: center;
-    color: #fff;
-    margin-right: 10px;
+  text-align: center;
+  color: #fff;
+  margin-right: 10px;
 }
 .footer-content-container h1 {
-    font-size: 18px;
+  font-size: 18px;
 }

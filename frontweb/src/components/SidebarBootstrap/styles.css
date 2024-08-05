@@ -1,6 +1,15 @@
 .sidebar-container {
   width: 280px;
 }
+
+.sidebar-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+}
+
 .b-example-divider {
   flex-shrink: 0;
   width: 1.5rem;

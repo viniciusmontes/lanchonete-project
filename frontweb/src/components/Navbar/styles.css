@@ -4,15 +4,23 @@
   padding: 10px;
   height: 60px;
   background-color: red;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
+
 .nav a.active {
   color: yellow;
 }
+
 .nav-title {
   padding-left: 10px;
   color: yellow;
   font-size: 2em;
 }
+
 .nav-main {
   display: flex;
   align-items: center;
@@ -25,6 +33,7 @@
   padding: 10px;
   font-size: 1.2em;
 }
+
 .nav-main li:hover {
   color: yellow;
   cursor: pointer;
@@ -33,4 +42,8 @@
 .nav-main svg {
   width: 80px;
   height: 20px;
+}
+
+.content {
+  padding-top: 60px; /* Altura da navbar */
 }

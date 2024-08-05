@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
-import "./styles.css";
+import './styles.css';
+
+import { useEffect, useState } from 'react';
+
 
 export default function Carrousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     "https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kzXCTbnv/200/200/original?country=br", // Substitua "img1.jpg" com o caminho real da sua imagem
-    "https://static.wixstatic.com/media/04b233_8cc42a30f29a41eb9bd8213d8b7b8cee~mv2.png/v1/fill/w_648,h_432,al_c,q_85,usm_0.33_1.00_0.00,enc_auto/PRODUTOS%20D'LANCHE.png",
-    "https://gifs.eco.br/wp-content/uploads/2023/06/imagens-de-lanche-png-13.png",
+    "https://d3sn2rlrwxy0ce.cloudfront.net/_800x600_crop_center-center_none/whopper-thumb_2021-09-16-125319_mppe.png?mtime=20210916125320&focal=none&tmtime=20240612010000",
+    "https://www.abcdacomunicacao.com.br/wp-content/uploads/Sanduiches_3x15.png"
   ];
 
   useEffect(() => {

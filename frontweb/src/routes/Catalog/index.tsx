@@ -23,7 +23,6 @@ export default function Catalog() {
         <div className="test-banner-container">
           <Carrousel />
         </div>
-        <h1 className="test-container-title">FAÇA JÁ O SEU PEDIDO!</h1>
         <div className="test-container-catalog">
           {products.map((product) => (
             <div key={product.id} className="test-card">

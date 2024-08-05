@@ -1,7 +1,7 @@
-import "./styles.css";
+import './styles.css';
 
-import { useState } from "react";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+import { useState } from 'react';
+import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
 
 type MenuKeys = "home" | "dashboard" | "config" | "account";
 
@@ -24,13 +24,13 @@ export default function SidebarBootstrap() {
   return (
     <div className="flex-shrink-0 p-3 bg-white sidebar-container">
       <a
-        href="/"
+        href="/admin/home"
         className="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom"
       >
-        <svg className="bi me-2" width="30" height="24">
-          <use href="#bootstrap"></use>
-        </svg>
-        <span className="fs-5 fw-semibold">Home</span>
+        
+        <div className="sidebar-title-container">
+          <h1>Admin</h1>
+        </div>
       </a>
       <ul className="list-unstyled ps-0">
         <li className="mb-1">

@@ -14,7 +14,8 @@ type UrlParams = {
 };
 
 export default function Form() {
-  const { register, handleSubmit, reset, setValue } = useForm<ProductDTO>();
+  const { register, handleSubmit, reset, setValue, getValues} =
+    useForm<ProductDTO>();
 
   const { productId } = useParams<UrlParams>();
 
@@ -105,8 +106,16 @@ export default function Form() {
             placeholder="Digite a URL da imagem"
           />
         </div>
+        <div className="product-form-image-container">
+          {isEditing ? (
+            <img src={getValues('imgUrl')} alt="Imagem do Produto" />
+          ) : (
+            <p>Sem imagem</p>
+          )}
+        </div>
+
         <div className="col-auto">
-        <button type="submit" className="btn btn-primary mb-3">
+          <button type="submit" className="btn btn-primary mb-3">
             SALVAR
           </button>
           <Link to="/admin/products">
@@ -114,7 +123,6 @@ export default function Form() {
               VOLTAR
             </button>
           </Link>
-          
         </div>
       </form>
     </div>

@@ -1,4 +1,11 @@
-.admin-container {
+ .admin-container {
     display: flex;
     height: 100vh;
-}
+  }
+  
+  .admin-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  

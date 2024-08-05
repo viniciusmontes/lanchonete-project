@@ -1,21 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Freeman&display=swap");
 
 * {
-    font-family: 'Freeman', sans-serif;
-  }
+  font-family: "Freeman", sans-serif;
+}
 body {
-    background-color: rgba(206, 204, 204, 0.546);
-}  
+  background-color: rgba(206, 204, 204, 0.546);
+  scroll-behavior: smooth;
+}
 
 body a {
-    text-decoration: none;
-    color: unset;
+  text-decoration: none;
+  color: unset;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
-    margin-bottom: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  margin-bottom: 0;
 }
 p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
+
+
+
